@@ -30,10 +30,10 @@ function new_image()
 {
 	// write code to Upload ball image on canvas
 	fabric.Image.fromURL("ball.png", function(Img) {
-		hole_obj = Img;
-		hole_obj.scaleToWidth(50);
-		hole_obj.scaleToHeight(50);
-		hole_obj.set({
+		ball_obj = Img;
+		ball_obj.scaleToWidth(50);
+		ball_obj.scaleToHeight(50);
+		ball_obj.set({
 		top:hole_y,
 		left:hole_x
 		});
