@@ -1,6 +1,6 @@
 
 // Create canvas variable
-var canvas = new fabric.canvas('myCanvas');
+var canvas = new fabric.Canvas('myCanvas');
 
 //Set initial positions for ball and hole images.
 ball_y=0;
@@ -19,7 +19,7 @@ function load_img(){
 		hole_obj.scaleToHeight(50);
 		hole_obj.set({
 			top:hole_y,
-			top:hole_x
+			left:hole_x
 		});
 		canvas.add(hole_obj);
 	});
@@ -35,7 +35,7 @@ function new_image()
 		hole_obj.scaleToHeight(50);
 		hole_obj.set({
 		top:hole_y,
-		top:hole_x
+		left:hole_x
 		});
 		canvas.add(ball_obj);
 	});
@@ -56,7 +56,7 @@ function my_keydown(e)
 		document.getElementById("hd3").innerHTML="you have hit the Goal!!!";
 		document.getElementById("myCanvas").style.borderColor="red";
 	}
-		{
+		else{
 		if(keyPressed == '38')
 		{
 			up();
@@ -82,9 +82,9 @@ function my_keydown(e)
 	function up()
 	{
 		// Write a code to move ball upward.
-		if(ball_y <=450)
+		if(ball_y >=5)
 		 {
-			 ball_y = ball_y + block_image_height;
+			 ball_y = ball_y - block_image_height;
 			 console.log("block image height = " + block_image_height);
 			 console.log("When up arrow key is pressed, X = " +ball_x + ", Y ="+ball_y);
 			 canvas.remove(ball_obj);
@@ -113,14 +113,14 @@ function my_keydown(e)
 		if(ball_x >5)
 		{
 			// Write a code to move ball left side.
-			if(ball_y <=450)
-		 {
-			 ball_y = ball_y + block_image_height;
-			 console.log("block image height = " + block_image_height);
+			
+		 
+			 ball_x = ball_x - block_image_width;
+			 console.log("block image width = " + block_image_width);
 			 console.log("When left arrow key is pressed, X = " +ball_x + ", Y ="+ball_y);
 			 canvas.remove(ball_obj);
 			 new_image();
-		 }
+		 
 		}
 	}
 
@@ -129,13 +129,13 @@ function my_keydown(e)
 		if(ball_x <=1050)
 		{
 			// Write a code to move ball right side.if(ball_y <=450)
-		 {
-			ball_y = ball_y + block_image_height;
-			console.log("block image height = " + block_image_height);
+		 
+			ball_x = ball_x + block_image_width;
+			console.log("block image width = " + block_image_width);
 			console.log("When right arrow key is pressed, X = " +ball_x + ", Y ="+ball_y);
 			canvas.remove(ball_obj);
 			new_image();
-		}
+		
 		}
 	}
 	
